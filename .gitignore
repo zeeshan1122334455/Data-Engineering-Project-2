@@ -1,5 +1,8 @@
+.env
+
 
 terraform/*
-.env
+
 !terraform/main.tf
 !terraform/variables.tf
+
