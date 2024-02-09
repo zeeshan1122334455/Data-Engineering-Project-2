@@ -1,3 +1,4 @@
+import pandas as pd 
 if 'transformer' not in globals():
     from mage_ai.data_preparation.decorators import transformer
 if 'test' not in globals():
@@ -11,7 +12,8 @@ def transform(data, *args, **kwargs):
         .str.replace(' ','_')
         .str.lower()
     )
-
+    data['lpep_pickup_datetime'] = pd.to_datetime(data.lpep_pickup_datetime)
+    data['lpep_dropoff_datetime'] = pd.to_datetime(data.lpep_dropoff_datetime)
     return data
 
 
