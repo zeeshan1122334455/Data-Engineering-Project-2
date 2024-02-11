@@ -1,0 +1,10 @@
+--select COUNT(DISTINCT(pulocationid)) from ex_green_taxi_schema.ex_green_taxi_table;
+--select COUNT(DISTINCT(pulocationid)) from public.green_taxi_table;
+
+COPY ex_green_taxi_schema.ex_green_taxi_table
+FROM 's3://farans-bucket/green_taxi_data.csv' 
+CREDENTIALS 'aws_iam_role=arn:aws:iam::905418282988:role/redshift_taxi_role' 
+region 'ap-south-1'
+CSV
+IGNOREHEADER 1
+;
